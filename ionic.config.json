@@ -1,0 +1,7 @@
+{
+  "name": "exploraMusic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
