@@ -1,0 +1,22 @@
+<!-- home.page.html -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Álbumes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let album of dataService.albumsData" (click)="onAlbumClick(album)">
+      <ion-thumbnail slot="start">
+        <ion-img [src]="album.enlace_miniatura" alt="Miniatura del álbum"></ion-img>
+      </ion-thumbnail>
+      <ion-label>
+        {{ album.nombre }}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>
