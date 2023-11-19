@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { DetalleAlbumPage } from './detalle-album/detalle-album/detalle-album.page';
-import { IonicModule } from '@ionic/angular';
 const routes: Routes = [
   {
     path: '',
@@ -14,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'detalle-album/:id',
-    component: DetalleAlbumPage,
+    loadChildren: () => import('./detalle-album/detalle-album/detalle-album.module').then( m => m.DetalleAlbumPageModule)
   },
 ];
 
