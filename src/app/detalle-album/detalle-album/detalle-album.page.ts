@@ -1,3 +1,4 @@
+// detalle-album.page.ts
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
@@ -8,12 +9,15 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./detalle-album.page.scss'],
 })
 export class DetalleAlbumPage implements OnInit {
-  albumSeleccionado!: any;
-  constructor(public dataService: DataService, private route: ActivatedRoute) { }
+  albumDetalles: any = {};
+https: any;
 
-  ngOnInit() {
+  constructor(public dataService: DataService, private route: ActivatedRoute) {}
+
+  async ngOnInit() {
     const albumId = this.route.snapshot.paramMap.get('id');
-    this.albumSeleccionado = this.dataService.albumsData.find((album)=>album.id===albumId)
+    await this.dataService.obtenerDetallesAlbum(albumId!);
+    this.albumDetalles = this.dataService.albumSeleccionado;
   }
-
 }
+

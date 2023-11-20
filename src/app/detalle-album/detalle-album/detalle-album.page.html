@@ -1,2 +1,42 @@
-<ion-text>{{albumSeleccionado.nombre}}</ion-text>
-<ion-text>hola</ion-text>
+<!-- detalle-album.page.html -->
+<ion-header>
+    <ion-toolbar>
+      <ion-title>
+        Detalles del Álbum
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-card>
+      <ion-card-header>
+        {{ albumDetalles.nombre }}
+      </ion-card-header>
+      <ion-img [src]="albumDetalles.enlace_grande" alt="Imagen grande"></ion-img>
+      <ion-card-content>
+        <p>{{ albumDetalles.descripcion }}</p>
+        <p>Género: {{ albumDetalles.genero }}</p>
+      </ion-card-content>
+    </ion-card>
+  
+    <!-- Contenedor para las dos últimas imágenes con enlaces -->
+    <div class="image-container">
+      <ion-card>
+        <ion-card-content class="image-content">
+          <a [href]="albumDetalles.enlace_spotify" target="_blank">
+            <ion-img [src]="'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/1024px-Spotify_logo_without_text.svg.png'" alt="Spotify Logo"></ion-img>
+          </a>
+        </ion-card-content>
+      </ion-card>
+  
+      <ion-card>
+        <ion-card-content class="image-content">
+          <a [href]="albumDetalles.enlace_apple" target="_blank">
+            <ion-img [src]="'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Apple-logo.png/640px-Apple-logo.png'" alt="Apple Logo"></ion-img>
+          </a>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ion-content>
+  
+  

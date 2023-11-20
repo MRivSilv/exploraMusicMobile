@@ -18,8 +18,7 @@ export class HomePage implements OnInit {
 
   // Nuevo método para manejar el clic en un álbum
   onAlbumClick(album: any) {
-    this.dataService.seleccionarAlbum(album);
-    this.router.navigate(['/detalle-album', album.id])
+    this.router.navigate(['/detalle-album', album.id]);
   }
   
 }
