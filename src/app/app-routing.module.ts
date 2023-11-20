@@ -1,6 +1,7 @@
+// app-routing.module.ts
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { DetalleAlbumPage } from './detalle-album/detalle-album/detalle-album.page';
+
 const routes: Routes = [
   {
     path: '',
@@ -9,12 +10,13 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)
   },
   {
     path: 'detalle-album/:id',
-    loadChildren: () => import('./detalle-album/detalle-album/detalle-album.module').then( m => m.DetalleAlbumPageModule)
+    loadChildren: () => import('./detalle-album/detalle-album/detalle-album.module').then(m => m.DetalleAlbumPageModule)
   },
+  // Agrega otras rutas según sea necesario
 ];
 
 @NgModule({
@@ -24,4 +26,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+
 
