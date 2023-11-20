@@ -15,7 +15,11 @@ const routes: Routes = [
   {
     path: 'detalle-album/:id',
     loadChildren: () => import('./detalle-album/detalle-album/detalle-album.module').then(m => m.DetalleAlbumPageModule)
+  },  {
+    path: 'search',
+    loadChildren: () => import('./search/search.module').then( m => m.SearchPageModule)
   },
+
   // Agrega otras rutas según sea necesario
 ];
 

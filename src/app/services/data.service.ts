@@ -1,6 +1,3 @@
-// data.service.ts
-
-// data.service.ts
 import { Injectable } from '@angular/core';
 import { supabase } from 'src/supabase-config';
 
@@ -9,7 +6,7 @@ import { supabase } from 'src/supabase-config';
 })
 export class DataService {
   albumsData: any[] = [];
-  albumSeleccionado: any = null; // Nuevo atributo para almacenar el álbum seleccionado
+  albumSeleccionado: any = null; 
 
   constructor() {}
 
@@ -45,6 +42,24 @@ export class DataService {
       console.error('Error inesperado:', (error as any).message);
     }
   }
+  buscarAlbumesPorPalabra(palabra: string) {
+    const resultados = this.albumsData.filter(album =>
+      this.coincidePalabraClave(album, palabra)
+    );
+
+    return resultados;
+  }
+  private coincidePalabraClave(album: any, palabra: string) {
+    const keywordLower = palabra.toLowerCase();
+
+    return (
+      album.nombre.toLowerCase().includes(keywordLower) ||
+      album.descripcion.toLowerCase().includes(keywordLower) ||
+      album.genero.toLowerCase().includes(keywordLower)
+      
+    );
+  }
 }
+
 
 
