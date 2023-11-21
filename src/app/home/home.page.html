@@ -1,3 +1,4 @@
+<!-- home.page.html -->
 <ion-header>
   <ion-toolbar>
     <ion-title>
@@ -5,19 +6,21 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-<ion-toolbar>
-  <ion-title>Albumes</ion-title>
-</ion-toolbar>
 
 <ion-content>
-  <ion-list>
-    <ion-item *ngFor="let album of dataService.albumsData" (click)="onAlbumClick(album)">
-      <ion-thumbnail slot="start">
-        <ion-img [src]="album.enlace_miniatura" alt="Miniatura del álbum"></ion-img>
-      </ion-thumbnail>
-      <ion-label>
-        {{ album.nombre }}
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" size-lg="4" size-xl="3" *ngFor="let album of dataService.albumsData">
+        <ion-item (click)="onAlbumClick(album)">
+          <!-- Contenedor de la miniatura con el nombre -->
+          <ion-thumbnail slot="start">
+            <ion-img [src]="album.enlace_miniatura" alt="Miniatura del álbum"></ion-img>
+            <ion-label>
+              {{ album.nombre }}
+            </ion-label>
+          </ion-thumbnail>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
