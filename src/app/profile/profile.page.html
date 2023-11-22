@@ -1,0 +1,23 @@
+<!-- profile.component.html -->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Perfil de Usuario
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-thumbnail>
+  <ion-avatar class="profile-picture" (click)="changeProfilePicture()">
+    <img [src]="userProfile.imageUrl" alt="Foto de perfil">
+    <ion-icon name="camera" class="edit-icon"></ion-icon>
+  </ion-avatar>
+
+  <ion-label class="profile-name">{{ userProfile.name }}</ion-label>
+  <ion-label class="profile-description">{{ userProfile.description }}</ion-label>
+
+  <ion-button expand="full" (click)="changeProfilePicture()">Cambiar Imagen</ion-button>
+  </ion-thumbnail>
+</ion-content>

@@ -1,0 +1,36 @@
+ion-avatar.profile-picture {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    margin-top: 20px;
+    position: relative;
+  }
+  
+  ion-icon.edit-icon {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 5px;
+  }
+  
+  ion-label.profile-name,
+  ion-label.profile-description {
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+  }
+  
+  ion-button {
+    margin-top: 20px;
+  }
+  ion-thumbnail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    width: auto; /* Ajusta la altura según sea necesario */
+    
+  }
+  

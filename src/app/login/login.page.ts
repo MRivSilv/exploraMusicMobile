@@ -26,33 +26,24 @@ export class LoginPage implements OnInit {
   }
 
   //Método que permite ingresar al home, validando al usuario
-  async ingresar(){
-    //Variable que utiliza los valores en el formulario
+  async ingresar() {
     var formulario = this.formularioLogin.value;
-    //Variable que obtiene los valores almacenados en el localstorage
     var usuario = JSON.parse(localStorage.getItem('usuario')!);
-
-    //Comparación entre lo ingresado y lo que está en localstorage
-    if (usuario.nombre == formulario.nombre && usuario.password == formulario.password)
-    {
-      //Asignación de variable para determinar si el usuario inició sesión o no
-      //utilizado en el localstorage y el guard
-      localStorage.setItem("ingresado","true");
-      //Redirección al home, ya que para estar aquí el usuario y la contraseña
-      //debe ser válido
+  
+    if (usuario && usuario.nombre == formulario.nombre && usuario.password == formulario.password) {
+      localStorage.setItem('ingresado', 'true');
+      localStorage.setItem('userNombre', usuario.nombre); // Almacena el nombre del usuario
       this.navCtrl.navigateRoot('home');
-    }
-    else
-    {
-      //Si no es válido el usuario, lanza una alerta
+    } else {
       const alerta = await this.alertCtrl.create({
         header: 'Datos incorrectos',
         message: 'Los datos ingresados no son correctos',
         buttons: ['Aceptar']
       });
-
+  
       await alerta.present();
     }
   }
+  
 
 }
