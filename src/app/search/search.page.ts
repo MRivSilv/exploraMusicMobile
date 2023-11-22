@@ -1,6 +1,7 @@
 // search.page.ts
 import { Component } from '@angular/core';
 import { DataService } from '../services/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -11,7 +12,7 @@ export class SearchPage {
   searchTerm: string = '';
   resultados: any[] = [];
 
-  constructor(private dataService: DataService) {}
+  constructor(private router: Router, private dataService: DataService) {}
 
   buscarAlbumes() {
     // Lógica de búsqueda en la base de datos
@@ -20,5 +21,8 @@ export class SearchPage {
     } else {
       this.resultados = []; // Limpiar resultados si la búsqueda está vacía
     }
+  }
+  onAlbumClick(album: any) {
+    this.router.navigate(['/detalle-album', album.id]);
   }
 }

@@ -7,7 +7,7 @@ import { supabase } from 'src/supabase-config';
 export class DataService {
   albumsData: any[] = [];
   albumSeleccionado: any = null; 
-
+  ultimosAlbumesClickeados: any[] = [];
   constructor() {}
 
   async obtenerDatos() {
@@ -43,20 +43,26 @@ export class DataService {
     }
   }
   buscarAlbumesPorPalabra(palabra: string) {
+    console.log('Palabra de búsqueda:', palabra);
+  
+    // Filtrar los resultados basados en la palabra clave
     const resultados = this.albumsData.filter(album =>
       this.coincidePalabraClave(album, palabra)
     );
-
+  
+    console.log('Resultados de la búsqueda:', resultados);
+    
     return resultados;
   }
-  private coincidePalabraClave(album: any, palabra: string) {
-    const keywordLower = palabra.toLowerCase();
 
+  private coincidePalabraClave(album: any, palabra: string) {
+    // Verificar si la palabra clave está presente en alguna propiedad relevante del álbum
+    const keywordLower = palabra.toLowerCase();
     return (
       album.nombre.toLowerCase().includes(keywordLower) ||
       album.descripcion.toLowerCase().includes(keywordLower) ||
       album.genero.toLowerCase().includes(keywordLower)
-      
+      // Puedes agregar más propiedades según sea necesario
     );
   }
 }
