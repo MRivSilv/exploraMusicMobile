@@ -16,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: 'detalle-album/:id',
-    loadChildren: () => import('./detalle-album/detalle-album/detalle-album.module').then(m => m.DetalleAlbumPageModule),
+    loadChildren: () => import('./detalle-album/detalle-album.module').then(m => m.DetalleAlbumPageModule),
     canActivate: [HomeGuard], // Protege la ruta de detalle-album con el guardia de autenticación
   },
   {
@@ -36,6 +36,8 @@ const routes: Routes = [
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then(m => m.ProfilePageModule)
   },
+
+
   // Agrega otras rutas según sea necesario
 ];
 

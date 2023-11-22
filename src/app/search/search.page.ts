@@ -1,6 +1,6 @@
 // search.page.ts
 import { Component } from '@angular/core';
-import { DataService } from '../services/data.service';
+import { DataService } from '../services/data/data.service';
 import { Router } from '@angular/router';
 
 @Component({

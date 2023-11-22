@@ -7,6 +7,14 @@
   </ion-toolbar>
 </ion-header>
 
+<ion-buttons slot="end">
+  <ion-select placeholder="Ordenar por" (ionChange)="cambiarOrden($event)">
+    <ion-select-option value="valoracionDesc">Valoración (mayor a menor)</ion-select-option>
+    <ion-select-option value="valoracionAsc">Valoración (menor a mayor)</ion-select-option>
+    <ion-select-option value="alfabeticamente">Alfabéticamente</ion-select-option>
+  </ion-select>
+</ion-buttons>
+
 <ion-content>
   <ion-grid>
     <ion-row>

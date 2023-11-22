@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { supabase } from 'src/supabase-config';
-
 @Injectable({
   providedIn: 'root',
 })
@@ -65,7 +64,9 @@ export class DataService {
       // Puedes agregar más propiedades según sea necesario
     );
   }
+  
 }
+
 
 
 

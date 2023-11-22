@@ -9,6 +9,7 @@
 </ion-header>
 
 <ion-content class="ion-padding">
+  <ion-card>
   <ion-thumbnail>
   <ion-avatar class="profile-picture" (click)="changeProfilePicture()">
     <img [src]="userProfile.imageUrl" alt="Foto de perfil">
@@ -20,4 +21,5 @@
 
   <ion-button expand="full" (click)="changeProfilePicture()">Cambiar Imagen</ion-button>
   </ion-thumbnail>
+</ion-card>
 </ion-content>

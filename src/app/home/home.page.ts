@@ -1,7 +1,7 @@
 // home.page.ts
 
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../services/data.service';
+import { DataService } from '../services/data/data.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -20,5 +20,20 @@ export class HomePage implements OnInit {
   onAlbumClick(album: any) {
     this.router.navigate(['/detalle-album', album.id]);
   }
-  
+  cambiarOrden(event: any) {
+    const criterio = event.detail.value;
+    switch (criterio) {
+      case 'valoracionDesc':
+        this.dataService.albumsData.sort((a, b) => b.valoracion - a.valoracion);
+        break;
+      case 'valoracionAsc':
+        this.dataService.albumsData.sort((a, b) => a.valoracion - b.valoracion);
+        break;
+      case 'alfabeticamente':
+        this.dataService.albumsData.sort((a, b) => a.nombre.localeCompare(b.nombre));
+        break;
+      default:
+        break;
+    }
+  }
 }
